@@ -64,6 +64,11 @@ function getMostPopularAuthors(books = [], authors = []) {
     return bookB.borrows.length - bookA.borrows.length
   })
 
+  // Helper function, returns full name
+  const authorFullName = (first, last) => {
+    return `${first} ${last}`
+  }
+
   return books
     .map((book) => {
       const { title, authorId, borrows } = book
@@ -72,9 +77,10 @@ function getMostPopularAuthors(books = [], authors = []) {
         return authorId === author.id
       })
 
-      const authorFullName = `${author.name.first} ${author.name.last}`
-
-      return { name: authorFullName, count: borrows.length }
+      return {
+        name: authorFullName(author.name.first, author.name.last),
+        count: borrows.length,
+      }
     })
     .slice(0, 5)
 }
