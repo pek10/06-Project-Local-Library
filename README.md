@@ -1,6 +1,6 @@
 # Local Library
 
-This project is designed to test the ability to work with large datasets and build algorithms based on those datasets. 
+This is my solution for a project that is designed to test the ability to work with large datasets and build algorithms based on those datasets. 
 
 ## Objectives
 
