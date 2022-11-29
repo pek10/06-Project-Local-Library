@@ -9,17 +9,17 @@ function sortAccountsByLastName(accounts) {
 }
 
 function getTotalNumberOfBorrows(account, books) {
-  let result = 0
+  return books.reduce((total, book) => {
+    const { borrows } = book
 
-  for (let i = 0; i < books.length; i++) {
-    for (let j = 0; j < books[i].borrows.length; j++) {
-      if (books[i].borrows[j].id === account.id) {
-        result++
+    for (let borrow of borrows) {
+      if (borrow.id === account.id) {
+        total++
       }
     }
-  }
 
-  return result
+    return total
+  }, 0)
 }
 
 function getBooksPossessedByAccount(account = {}, books = [], authors = []) {
